@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Randl's FINAL</title>
+    <style>
+       body {
+            position: relative; /* 设置 body 为相对定位，以便绝对定位的元素相对于 body 定位 */
+            height: 100vh; /* 将页面撑满整个视口高度 */
+            margin: 0; /* 去除默认边距 */
+            padding: 0; /* 去除默认填充 */
+            background-image: url('b1.png'), url('b2.gif'); /* 设置多个背景图片 */
+            background-size: cover, auto; /* 设置背景图片大小 */
+            background-repeat: repeat, no-repeat; /* 设置背景图片重复 */
+        }
+        @font-face {
+            font-family: 'Garamond'; /* 自定义字体名称 */
+            src: url('path/to/your/font.woff2') format('woff2'), /* 替换 'path/to/your/font.woff2' 为字体文件的路径 */
+                 url('path/to/your/font.woff') format('woff'); /* 替换 'path/to/your/font.woff' 为字体文件的路径 */
+            /* 可以根据需要添加更多格式 */
+        }
+        #textContainer {
+            position: absolute;
+            bottom: -1100px; /* 调整位置 */
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+            font-family:  Garamond, sans-serif; /* 应用艺术字体 */
+        }
+
+        .taoText {
+            font-size: 65px;
+            color: white;
+            text-shadow: 5px 5px 5px red;
+            font-style: italic;
+        }
+        p{margin: 30px;}
+        
+        #centerImage {
+            position: absolute; /* 设置图片为绝对定位 */
+            top: 50%; /* 将图片垂直居中 */
+            left: 50%; /* 将图片水平居中 */
+            transform: translate(-50%, -50%) rotate(-30deg); /* 使用 transform 属性将图片居中并倾斜30度 */
+            width: 2000px; /* 设置图片宽度 */
+            height: auto; /* 根据宽度自动调整高度 */
+            z-index: 1; /* 设置图片的层级，使其在背景之上 */
+            border: none; /* 移除边框 */
+        }
+
+        #imageTopLeft {
+            position: absolute; /* 设置图片为绝对定位 */
+            top: 0; /* 将图片置于页面顶部 */
+            left: 0; /* 将图片置于页面左侧 */
+            width: 33.33%; /* 设置图片宽度为页面的三分之一 */
+            height: auto; /* 根据宽度自动调整高度 */
+            z-index: 1; /* 设置图片的层级 */
+            transform: rotate(-30deg); /* 倾斜30度 */
+            width: 800px; /* 设置图像宽度为 800 像素 */
+            height: auto; /* 根据宽度自动调整高度，以保持宽高比 */
+            border: none; /* 移除边框 */
+        }
+
+        #hanzi {
+            position: absolute; /* 设置图片为绝对定位 */
+            top: 0; /* 将图片置于页面顶部 */
+            left: 0; /* 将图片置于页面左侧 */
+            width: 100%; /* 设置图片宽度 */
+            height: auto; /* 根据宽度自动调整高度 */
+            z-index: 1; /* 设置图片的层级 */
+        }
+
+        #eye2 {
+            position: absolute; /* 设置图片为绝对定位 */
+            top: 0; /* 将图片置于页面顶部 */
+            right: 0; /* 将图片置于页面右侧 */
+            width: 200px; /* 设置图片宽度 */
+            height: auto; /* 根据宽度自动调整高度 */
+            z-index: 1; /* 设置图片的层级 */
+            transform: rotate(0%);
+        }
+
+        #eye1 {
+            position: absolute; /* 设置图片为绝对定位 */
+            top: -10; /* 将图片置于页面顶部 */
+            left: -50; /* 将图片置于页面左侧 */
+            width: 450px; /* 设置图片宽度 */
+            height: auto; /* 根据宽度自动调整高度 */
+            z-index: 1; /* 设置图片的层级 */
+            transform: rotate(0%);
+        }
+
+        #a2 {
+            position: absolute; /* 设置图片为绝对定位 */
+            top: -10px; /* 将图片置于页面顶部 */
+            right: -10px; /* 将图片置于页面右侧 */
+            transform: rotate(30deg); /* 倾斜30度 */
+        }
+
+        #kuang {
+            position: absolute; /* 设置图片为绝对定位 */
+            top: 50%; /* 将图片垂直居中 */
+            left: 50%; /* 将图片水平居中 */
+            transform: translate(-50%, -50%); /* 居中 */
+            width: 400px; /* 设置图片宽度 */
+            height: auto; /* 根据宽度自动调整高度 */
+            z-index: 1; /* 设置图片的层级 */
+            transition: transform 0.5s ease; /* 添加过渡效果 */
+        }
+
+        #ba {
+            position: absolute; /* 设置图片为绝对定位 */
+            top: 30%; /* 将图片垂直居中 */
+            left: 400px; /* 将图片置于页面左侧 */
+            transform: translate(0%, -50%); /* 垂直居中 */
+            width: 400px; /* 设置图片宽度 */
+            height: 300px; /* 设置图片高度 */
+            z-index: 1; /* 设置图片的层级 */
+        }
+        #gua {
+             position: absolute; /* 设置图片为绝对定位 */
+             bottom: 0; /* 将图片置于页面底部 */
+             left: 300px; /* 将图片置于页面左侧，您可以根据需要调节位置 */
+             width: 400px; /* 设置图片宽度 */
+             height: 500px; /* 根据宽度自动调整高度 */
+             z-index: 1; /* 设置图片的层级 */
+}
+        #bu {
+    position: absolute; /* 设置图片为绝对定位 */
+    top: 30%; /* 将图片垂直居中 */
+    right: 17%; /* 将图片置于页面右侧，您可以根据需要调节位置 */
+    transform: translate(0%, -50%); /* 垂直居中 */
+    width: 450px; /* 设置图片宽度 */
+    height: auto; /* 根据宽度自动调整高度 */
+    z-index: 1; /* 设置图片的层级 */
+}
+#suan {
+    position: absolute; /* 设置图片为绝对定位 */
+    bottom: 20px; /* 将图片置于页面底部，您可以根据需要调节位置 */
+    right: 13%; /* 将图片置于页面右侧，您可以根据需要调节位置 */
+    width: 600px; /* 设置图片宽度 */
+    height: auto; /* 根据宽度自动调整高度 */
+    z-index: 1; /* 设置图片的层级 */
+}
+#yuan {
+    position: absolute; /* 设置图片为绝对定位 */
+    bottom: -1190px; /* 将图片置于页面底部 */
+    left: 178px; /* 将图片置于页面左侧 */
+    width: 80%; /* 设置图片宽度为页面宽度 */
+    height: 120%; /* 根据宽度自动调整高度 */
+    z-index: 1; /* 设置图片的层级 */
+}
+#bagua {
+    position: absolute; /* 设置图片为绝对定位 */
+    bottom: -960px; /* 将图片置于页面底部 */
+    left: 560px; /* 将图片置于页面左侧 */
+    width: 38%; /* 设置图片宽度为页面宽度 */
+    height: 70%; /* 根据宽度自动调整高度 */
+    z-index: 1; /* 设置图片的层级 */
+}
+#sheng {
+    position: absolute; /* 设置图片为绝对定位 */
+    bottom: -960px; /* 将图片置于页面底部 */
+    left: 80px; /* 将图片置于页面左侧 */
+    width: 9%; /* 设置图片宽度为页面宽度 */
+    height: auto; /* 根据宽度自动调整高度 */
+    z-index: 1; /* 设置图片的层级 */
+}
+#shou {
+    position: absolute; /* 设置图片为绝对定位 */
+    bottom: -700px; /* 将图片置于页面底部 */
+    right: 0px; /* 将图片置于页面左侧 */
+    width: 48%; /* 设置图片宽度为页面宽度 */
+    height: auto; /* 根据宽度自动调整高度 */
+    z-index: 1; /* 设置图片的层级 */
+}
+
+#textContainer {
+            position: absolute;
+            bottom: -1100px; /* Adjust as needed */
+            width: 100%; /* Occupy full width */
+            text-align: center; /* Center align the text */
+            z-index: 2; /* Place above images */
+        }
+ #taoText {
+            font-size: 50px; /* Adjust as needed */
+            color: white; /* Text color */
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 这里没有直接插入背景图片，而是在 body 样式中设置了多个背景图片 -->
+    <a href="index2.html"><img id="kuang" src="kuang.png" alt="Kuang Image"></a> <!-- 将b2.gif放置在页面中间 -->
+    <img id="imageTopLeft" src="a1.gif" alt="Top Left Image"> <!-- 将a1.gif放置在页面左上角三分之一处并倾斜30度 -->
+    <img id="hanzi" src="hanzi.png" alt="Hanzi Image"> <!-- 将hanzi.png放置在页面最上方从左上角到右上角占满 -->
+    <img id="eye1" src="eye1.gif" alt="Eye 1 Image"> <!-- 将eye1.png放置在页面右上角 -->
+    <img id="eye2" src="eye2.gif" alt="Eye 2 Image"> <!-- 将eye2.png放置在页面左上角 -->
+    <img id="a2" src="a2.gif" alt="Image A2"> <!-- 将a2.gif放置在页面的右上角并倾斜30度 -->
+    <img id="ba" src="ba.png" alt="Ba Image"> <!-- 将ba.png放置在页面左边三分之一处，可以自行调节大小上下左右 -->
+    <img id="gua" src="gua.png" alt="gua Image"> <!-- 将ba.png放置在页面左边三分之一处，可以自行调节大小上下左右 -->
+    <img id="bu" src="bu.png" alt="bu Image"> <!-- 将ba.png放置在页面左边三分之一处，可以自行调节大小上下左右 -->
+    <img id="suan" src="suan.png" alt="suan Image"> <!-- 将ba.png放置在页面左边三分之一处，可以自行调节大小上下左右 -->
+    <img id="yuan" src="yuan.gif" alt="yuan Image">
+    <img id="bagua" src="bagua.png" alt="bagua Image" onclick="rotate(this)">
+    <img id="sheng" src="sheng.png" alt="sheng Image">
+    <img id="shou" src="shou.png" alt="shou Image" onclick="rotateShou()">
+    
+    <div id="textContainer">
+        <p class="taoText" onmouseover="springEffect(this)">The Tao gives birth to one and one to two</p>
+        <p class="taoText">two to three</p>
+        <p class="taoText">and three to everything</p>
+    </div>
+
+    </div>
+    <script>
+        var kuang = document.getElementById('kuang');
+        var ba = document.getElementById('ba');
+        var gua = document.getElementById('gua');
+        var bu = document.getElementById('bu');
+        var suan = document.getElementById('suan');
+        
+        // 定义跳动的幅度
+        var jumpAmount = 500;
+        
+        // 定义图片放大的比例
+        var scaleFactor = 1.2;
+        
+        // 定义鼠标是否在图片上的标志
+        var mouseOver = false;
+        
+        // 鼠标移入事件处理程序
+        kuang.addEventListener('mouseover', function() {
+            mouseOver = true;
+            // 停止跳动并放大
+            kuang.style.transition = 'transform 0.5s ease, width 0.5s ease';
+            kuang.style.transform = 'translate(-50%, -50%) scale(' + scaleFactor + ')';
+        });
+
+        // 鼠标移出事件处理程序
+        kuang.addEventListener('mouseleave', function() {
+            mouseOver = false;
+            // 恢复跳动并缩小
+            kuang.style.transition = 'transform 0.5s ease, width 0.5s ease';
+            kuang.style.transform = 'translate(-50%, -50%)';
+            kuang.style.width = '400px';
+        });
+
+        // 点击事件处理程序
+        function handleClick(element) {
+            element.style.transition = 'transform 1s ease'; // 添加过渡效果
+            element.style.transform = 'rotateY(360deg) scale(1.5)'; // 上下翻转360度并放大
+        }
+
+        // 点击事件监听器
+        ba.addEventListener('click', function() {
+            handleClick(ba);
+        });
+
+        gua.addEventListener('click', function() {
+            handleClick(gua);
+        });
+
+        bu.addEventListener('click', function() {
+            handleClick(bu);
+        });
+
+        suan.addEventListener('click', function() {
+            handleClick(suan);
+        });
+
+        // 定义跳动函数
+        function jump() {
+            if (!mouseOver) {
+                // 计算下一个位置
+                var newX = Math.random() * jumpAmount - (jumpAmount / 4);
+                var newY = Math.random() * jumpAmount - (jumpAmount / 4);
+                
+                // 应用到图片
+                kuang.style.transform = 'translate(-50%, -50%) translate(' + newX + 'px, ' + newY + 'px)';
+            }
+        }
+
+        // 每秒执行一次跳动
+        setInterval(jump, 500);
+        function rotate(element) {
+        element.style.transition = 'transform 5s ease'; // 添加过渡效果
+        element.style.transform = 'rotate(1080deg)'; // 绕中心点旋转360度
+    }
+    
+    function rotateShou() {
+        var shou = document.getElementById('shou');
+        shou.style.transition = 'transform 1s ease'; // 添加过渡效果
+        shou.style.transform = 'rotate(30deg)'; // 上下翻转360度并放大
+    }
+    function springEffect(element) {
+            // 获取元素原始高度
+            var originalHeight = element.clientHeight;
+
+            // 在1秒内将高度增加到原始高度的1.2倍
+            var scaleFactor = 1.5;
+            var targetHeight = originalHeight * scaleFactor;
+            var duration = 800; // 毫秒
+            var startTime = null;
+
+            // 定义动画函数
+            function animate(currentTime) {
+                if (!startTime) startTime = currentTime;
+                var elapsedTime = currentTime - startTime;
+                var progress = Math.min(elapsedTime / duration, 1); // 动画进度，限制在0到1之间
+                element.style.height = (originalHeight + (targetHeight - originalHeight) * progress) + 'px';
+                if (progress < 1) {
+                    requestAnimationFrame(animate); // 继续下一帧动画
+                }
+            }
+
+            requestAnimationFrame(animate); // 启动动画
+        }
+        // 获取文本元素
+var taoText = document.getElementsByClassName('taoText')[1]; // 获取第二个拥有 'taoText' 类的元素
+
+// 鼠标移入事件处理程序
+taoText.addEventListener('mouseover', function() {
+    // 添加左右挤压效果
+    taoText.style.transition = 'transform 0.3s ease';
+    taoText.style.transform = 'scaleX(2)'; // 在 X 轴方向上放大文本，实现挤压效果
+});
+
+// 鼠标移出事件处理程序
+taoText.addEventListener('mouseleave', function() {
+    // 移除挤压效果恢复原状
+    taoText.style.transition = 'transform 0.5s ease';
+    taoText.style.transform = 'scaleX(1)';
+});
+// 获取文本元素
+var taoText = document.getElementsByClassName('taoText')[2]; // 获取第三个拥有 'taoText' 类的元素
+
+// 鼠标移入事件处理程序
+taoText.addEventListener('mouseover', function() {
+    // 添加左右挤压效果
+    taoText.style.transition = 'transform 0.3s ease';
+    taoText.style.transform = 'scaleX(0.5)'; // 在 X 轴方向上收缩文本，实现挤压效果
+});
+
+// 鼠标移出事件处理程序
+taoText.addEventListener('mouseleave', function() {
+    // 移除挤压效果恢复原状
+    taoText.style.transition = 'transform 0.5s ease';
+    taoText.style.transform = 'scaleX(1)';
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Randl's FINAL - Page 2</title>
+    <style>
+        body {
+            /* 设置 body 元素的背景图像为 heise.png 和 lian.gif */
+            background-image: url('heise.png'), url('lian.gif');
+            background-size: cover, contain; /* 设置第一张背景图像 cover 以填充整个页面，第二张背景图像 contain 以保持原始比例并适应页面 */
+            background-position: center, center; /* 设置第一张背景图像居中显示，第二张背景图像居中显示 */
+            background-repeat: repeat; /* 不重复背景图像 */
+            margin: 0; /* 去除默认边距 */
+            padding: 0; /* 去除默认填充 */
+            height: 100vh; /* 设置页面高度为视口高度 */
+            display: flex; /* 使用弹性布局 */
+            justify-content: center; /* 水平方向上居中对齐 */
+            align-items: center; /* 垂直方向上居中对齐 */
+            position: relative; /* 让 body 元素成为定位的参考 */
+        }
+
+        #lian {
+            width: 900px; /* 设置最大宽度为 900px */
+            height: auto; /* 设置最大高度为 100% */
+            position: absolute; /* 设置为绝对定位 */
+            top: 50%; /* 上边距为页面中部 */
+            left: 50%; /* 左边距为页面中部 */
+            transform: translate(-50%, -50%); /* 使用 transform 属性上下左右居中 */
+        }
+
+        #ziju {
+            width: 1800px; /* 设置最大宽度为 1800px */
+            height: auto; /* 设置最大高度为 100% */
+            position: absolute; /* 设置为绝对定位 */
+            top: 50%; /* 上边距为页面中部 */
+            left: 50%; /* 左边距为页面中部 */
+            transform: translate(-50%, -50%); /* 使用 transform 属性上下左右居中 */
+        }
+
+        #chi {
+            position: absolute; /* 设置为绝对定位 */
+            bottom: 0; /* 底部与页面底部对齐 */
+            left: 20px; /* 左边距为页面左侧 */
+            width: 500px; /* 设置图片宽度 */
+            height: auto; /* 设置图片高度自适应 */
+        }
+
+        #pintie2 {
+            position: absolute; /* 设置为绝对定位 */
+            top: 40px; /* 顶部与页面顶部对齐 */
+            right: 40px; /* 右边距为页面右侧 */
+            width: 400px; /* 设置图片宽度 */
+            height: auto; /* 设置图片高度自适应 */
+        }
+        
+        #shetou {
+            position: absolute; /* 设置为绝对定位 */
+            top: 310px; /* 顶部与页面顶部对齐 */
+            right: 110px; /* 右边距为页面右侧 */
+            width: 200px; /* 设置图片宽度 */
+            height: auto; /* 设置图片高度自适应 */
+        }
+        #yanjing {
+            position: absolute; /* 设置为绝对定位 */
+            top: 40px; /* 顶部与页面顶部对齐 */
+            right: 40px; /* 右边距为页面右侧 */
+            width: 220px; /* 设置图片宽度 */
+            height: auto; /* 设置图片高度自适应 */
+            cursor: pointer; /* 鼠标样式为手型 */
+        }
+
+        #wenxian {
+            display: none; /* 初始状态下隐藏 */
+            position: absolute; /* 设置为绝对定位 */
+            top: 100px; /* 顶部与页面顶部对齐 */
+            right: 500px; /* 右边距为页面右侧 */
+            width: 1000px; /* 设置图片宽度 */
+            height: auto; /* 设置图片高度自适应 */
+        }
+        #wenxian2 {
+            display: none; /* 初始状态下隐藏 */
+            position: absolute; /* 设置为绝对定位 */
+            top: 50px; /* 顶部与页面顶部对齐 */
+            right: 500px; /* 右边距为页面右侧 */
+            width: 900px; /* 设置图片宽度 */
+            height: auto; /* 设置图片高度自适应 */
+        }
+        #xiaobiao {
+            position: absolute; /* 设置为绝对定位 */
+            top: 800px; /* 顶部与页面顶部对齐 */
+            right: 150px; /* 右边距为页面右侧 */
+            width: 200px; /* 设置图片宽度 */
+            height: auto; /* 设置图片高度自适应 */
+            transition: transform 0.3s; /* 添加过渡效果 */
+        }
+        #xiaobiao:hover {
+            transform: scale(1.5); /* 悬停时放大到原来的1.5倍 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 将 "lian.gif" 放置在页面正中间 -->
+    <img id="lian" src="lian.gif" alt="Lian Image">
+    
+    <!-- 将 "ziju.png" 插入页面中 -->
+    <img id="ziju" src="ziju.png" alt="Ziju Image">
+
+    <!-- 添加图片 "chi.gif" 位于页面左下方 -->
+    <img id="chi" src="chi.gif" alt="Chi Image">
+
+    <!-- 添加图片 "pintie2.png" 位于页面右上方 -->
+    <img id="pintie2" src="pintie2.png" alt="Pintie2 Image">
+    <img id="shetou" src="shetou.png" alt="shetou Image">
+
+    <!-- 添加点击事件的图片 "yanjing.png" -->
+    <img id="yanjing" src="yanjing.png" alt="Yanjing Image">
+
+    <!-- 需要显示的图片 "wenxian.png" -->
+    <img id="wenxian" src="wenxian.png" alt="Wenxian Image">
+    <img id="wenxian2" src="wenxian2.png" alt="Wenxian2 Image">
+
+    <!-- 将图片 "xiaobiao.png" 包装在链接元素中 -->
+    <a href="index3.html">
+        <img id="xiaobiao" src="xiaobiao.png" alt="Xiaobiao Image">
+    </a>
+
+    <script>
+        var yanjing = document.getElementById('yanjing');
+        var wenxian = document.getElementById('wenxian');
+        var enlarged = false; // 初始状态为未放大
+
+        // 添加点击事件处理程序
+        yanjing.addEventListener('click', function() {
+            if (!enlarged) {
+                // 放大图片
+                yanjing.style.transform = 'scale(1.5)';
+                // 显示 wenxian 图片
+                wenxian.style.display = 'block';
+                enlarged = true; // 更新状态为已放大
+            } else {
+                // 恢复原状
+                yanjing.style.transform = 'scale(1)';
+                // 隐藏 wenxian 图片
+                wenxian.style.display = 'none';
+                enlarged = false; // 更新状态为未放大
+            }
+        });
+        var shetou = document.getElementById('shetou');
+       
+        var wenxian2 = document.getElementById('wenxian2');
+        var enlarged = false; // 初始状态为未放大
+
+        // 添加点击事件处理程序
+        shetou.addEventListener('click', function() {
+            if (!enlarged) {
+                // 放大图片
+                shetou.style.transform = 'scale(1.5)';
+                // 显示 wenxian2 图片
+                wenxian2.style.display = 'block';
+                enlarged = true; // 更新状态为已放大
+            } else {
+                // 恢复原状
+                shetou.style.transform = 'scale(1)';
+                // 隐藏 wenxian2 图片
+                wenxian2.style.display = 'none';
+                enlarged = false; // 更新状态为未放大
+            }
+        });
+    </script>
+</body>
+</html>
